@@ -1,0 +1,21 @@
+.component {
+  height: 80px;
+  background-color: #d7e8ef;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+}
+
+.rightMenu {
+  display: flex;
+  gap: 24px;
+}

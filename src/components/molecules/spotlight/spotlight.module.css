@@ -1,0 +1,31 @@
+.component {
+  display: inline;
+}
+
+.spotlight {
+  position: relative;
+  z-index: 3000;
+}
+
+.spotlight::before {
+  background: #f2f7fa;
+  background-size: cover;
+  content: "";
+  filter: blur(10px);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.spotlightBackground {
+  background-color: rgba(0, 0, 0, 50%);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1800;
+}
