@@ -4,6 +4,7 @@ import BurgerMenu from "../../atoms/icon/burger-menu/burger-menu";
 import Search from "../../atoms/icon/search/search";
 import User from "../../atoms/icon/user/user";
 import Spotlight from "@/components/molecules/spotlight/spotlight";
+import Tooltip from "@/components/molecules/tooltip/tooltip";
 
 export interface NavigationProps {}
 
@@ -13,7 +14,9 @@ const Navigation = () => {
       <div className={styles.container}>
         <div className={styles.leftMenu}>
           <Spotlight isActive={true}>
-            <BurgerMenu />
+            <Tooltip content={"test"}>
+              <BurgerMenu />
+            </Tooltip>
           </Spotlight>
         </div>
         <div className={styles.rightMenu}>

@@ -1,0 +1,81 @@
+.component {
+  display: inline;
+}
+
+.box {
+  /*  Filter drop-shadow values is 1:1 with Figma design  */
+  filter: drop-shadow(0 0 5px rgba(39, 42, 68, 10%)) drop-shadow(0 0 5px rgba(39, 42, 68, 5%));
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+
+.buttonTrigger {
+  /* Remove button appearance, let class styling do the aesthetisc */
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+}
+
+.popperContainer {
+  max-width: 240px;
+  min-width: 150px;
+  position: relative;
+  z-index: 1000;
+}
+
+.boxInner {
+  background: #fff;
+  border-radius: 4px;
+  padding: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.boxInner p a {
+  /* color: $context-accent; */
+  text-decoration: underline;
+}
+
+.arrow {
+  height: 100%;
+  height: 18px;
+  text-align: justify;
+  width: 18px;
+  z-index: 99;
+}
+
+.arrow::before {
+  background: #fff;
+  border-radius: 4px;
+  content: "";
+  height: 18px;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 18px;
+  z-index: 99;
+}
+
+.popperContainer[data-popper-placement^="left"] .arrow {
+  right: -9px;
+  top: calc(50% - 9px);
+}
+
+.popperContainer[data-popper-placement^="bottom"] .arrow {
+  left: calc(50% - 9px);
+  top: -9px;
+}
+
+.popperContainer[data-popper-placement^="right"] .arrow {
+  left: -9px;
+  top: calc(50% - 9px);
+}
+
+.popperContainer[data-popper-placement^="top"] .arrow {
+  bottom: -9px;
+  left: calc(50% - 9px);
+}
