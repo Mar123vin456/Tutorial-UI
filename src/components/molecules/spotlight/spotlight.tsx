@@ -1,22 +1,32 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Fragment, ReactNode } from "react";
+import { Fragment, ReactNode, useEffect, useState } from "react";
 import styles from "./spotlight.module.css";
 import ScrollLock from "@/components/utilities/scroll-lock/ScrollLock";
+import { useSpotlightContext } from "./spotlight-context";
 
 export interface SpotlightProps {
   children?: ReactNode;
   isActive?: boolean;
+  order: number;
 }
 
-const Spotlight = ({ children, isActive = true }: SpotlightProps) => {
+const Spotlight = ({ children, isActive = true, order }: SpotlightProps) => {
+  const [isOpen, setIsOPen] = useState(isActive);
+  const { state } = useSpotlightContext();
+
+  useEffect(() => {
+    setIsOPen(state.currentStep === order);
+  }, [state.currentStep, order]);
+
   return (
     <div className={styles.component}>
-      <AnimatePresence>
-        {isActive ? (
+      <AnimatePresence mode="wait">
+        {isOpen ? (
           <Fragment>
             <ScrollLock />
+
             <motion.div
               key="spotlight-background"
               animate={{ opacity: 1 }}

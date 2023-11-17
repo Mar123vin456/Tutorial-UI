@@ -19,3 +19,14 @@
   display: flex;
   gap: 24px;
 }
+
+.tooltipContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tooltipContentNavigation {
+  display: flex;
+  justify-content: space-between;
+}

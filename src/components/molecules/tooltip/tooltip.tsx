@@ -12,6 +12,7 @@ export interface TooltipProps {
   children?: React.ReactNode;
   className?: string;
   content?: React.ReactNode | string;
+  isDefaultOpen?: boolean;
   onClick?: (isOpen: boolean) => void;
   placement?: Placement;
   popperClassName?: string;
@@ -30,6 +31,7 @@ const Tooltip = ({
   triggerType = "Hover",
   placement = "bottom",
   onClick,
+  isDefaultOpen = false,
 }: TooltipProps) => {
   const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | HTMLDivElement | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
@@ -58,7 +60,7 @@ const Tooltip = ({
 
   const ref = React.useRef<HTMLDivElement>(null);
 
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(isDefaultOpen);
 
   const close = React.useCallback(() => {
     if (triggerType === "Hover") {
@@ -107,7 +109,7 @@ const Tooltip = ({
                 opacity: 0,
                 scale: 0.95,
               }}
-              transition={{ duration: 0.1 }}
+              transition={{ duration: 1 }}
             >
               <div className={styles.boxInner}>{content}</div>
               <div ref={setArrowElement} className={styles.arrow} style={popperStyles.arrow} />
