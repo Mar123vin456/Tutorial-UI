@@ -30,3 +30,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.back,
+.next {
+  cursor: pointer;
+}
+
+.back.isHidden,
+.next.isHidden {
+  opacity: 0;
+}

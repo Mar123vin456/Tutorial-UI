@@ -6,10 +6,12 @@ export type Action = { type: "back" } | { type: "next" };
 
 export interface State {
   currentStep: number;
+  maxStep: number;
 }
 
-export const spotlightContextInitialState: State = {
+export const tutorialContextInitialState: State = {
   currentStep: 1,
+  maxStep: 6,
 };
 
 const reducer = (state: State, action: Action): State => {
@@ -35,7 +37,7 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
-export const SpotlightContext = createContext<
+export const TutorialContext = createContext<
   | {
       prevStep: () => void;
       nextStep: () => void;
@@ -44,8 +46,8 @@ export const SpotlightContext = createContext<
   | undefined
 >(undefined);
 
-export function useSpotlightContext() {
-  const context = React.useContext(SpotlightContext);
+export function useTutorialContext() {
+  const context = React.useContext(TutorialContext);
 
   if (context === undefined) {
     throw new Error("useCheckoutContext must be used within a CheckoutContextProvider");
@@ -54,12 +56,12 @@ export function useSpotlightContext() {
   return context;
 }
 
-interface SpotlightContextProviderProps {
+interface TutorialContextProviderProps {
   children: ReactNode;
   initialState: State;
 }
 
-export const CheckoutContextProvider = ({ children, initialState }: SpotlightContextProviderProps) => {
+export const TutorialContextProvider = ({ children, initialState }: TutorialContextProviderProps) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const prevStep = () => dispatch({ type: "back" });
@@ -67,7 +69,7 @@ export const CheckoutContextProvider = ({ children, initialState }: SpotlightCon
 
   const value = { prevStep, nextStep, state };
 
-  return <SpotlightContext.Provider value={value}>{children}</SpotlightContext.Provider>;
+  return <TutorialContext.Provider value={value}>{children}</TutorialContext.Provider>;
 };
 
-export default CheckoutContextProvider;
+export default TutorialContextProvider;

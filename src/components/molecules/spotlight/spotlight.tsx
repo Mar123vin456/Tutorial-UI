@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Fragment, ReactNode, useEffect, useState } from "react";
 import styles from "./spotlight.module.css";
 import ScrollLock from "@/components/utilities/scroll-lock/ScrollLock";
-import { useSpotlightContext } from "./spotlight-context";
+import { useTutorialContext } from "@/components/utilities/tutorial-context/tutorial-context";
 
 export interface SpotlightProps {
   children?: ReactNode;
@@ -14,7 +14,7 @@ export interface SpotlightProps {
 
 const Spotlight = ({ children, isActive = true, order }: SpotlightProps) => {
   const [isOpen, setIsOPen] = useState(isActive);
-  const { state } = useSpotlightContext();
+  const { state } = useTutorialContext();
 
   useEffect(() => {
     setIsOPen(state.currentStep === order);

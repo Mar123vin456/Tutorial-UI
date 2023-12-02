@@ -1,2 +1,43 @@
 .component {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #d7e8ef;
+  display: flex;
+  align-items: center;
+}
+
+.headline {
+  max-width: 50%;
+  margin: 0 auto;
+  font-size: 48px;
+}
+
+.tooltipContentContainer {
+  font-size: 16px;
+}
+
+.tooltip button {
+  font-size: 48px;
+  text-decoration: underline;
+}
+
+.tooltipContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tooltipContentNavigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.back,
+.next {
+  cursor: pointer;
+}
+
+.back.isHidden,
+.next.isHidden {
+  opacity: 0;
 }

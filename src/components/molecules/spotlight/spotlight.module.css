@@ -5,6 +5,8 @@
 .spotlight {
   position: relative;
   z-index: 3000;
+  max-width: fit-content;
+  display: inline-block;
 }
 
 .spotlight::before {

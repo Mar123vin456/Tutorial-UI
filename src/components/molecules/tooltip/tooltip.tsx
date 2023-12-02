@@ -26,7 +26,7 @@ const Tooltip = ({
   className,
   content,
   popperClassName,
-  popperOffset = [8, 8],
+  popperOffset = [20, 20],
   triggerClassName,
   triggerType = "Hover",
   placement = "bottom",
@@ -98,16 +98,13 @@ const Tooltip = ({
             <motion.div
               animate={{
                 opacity: 1,
-                scale: 1,
               }}
               className={styles.box}
               exit={{
                 opacity: 0,
-                scale: 0.95,
               }}
               initial={{
                 opacity: 0,
-                scale: 0.95,
               }}
               transition={{ duration: 1 }}
             >
