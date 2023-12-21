@@ -3,8 +3,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Fragment, ReactNode, useEffect, useState } from "react";
 import styles from "./spotlight.module.css";
-import ScrollLock from "@/components/utilities/scroll-lock/ScrollLock";
-import { useTutorialContext } from "@/components/utilities/tutorial-context/tutorial-context";
+import ScrollLock from "../../utilities/scroll-lock/ScrollLock";
+import { useTutorialContext } from "../../utilities/tutorial-context/tutorial-context";
 
 export interface SpotlightProps {
   children?: ReactNode;
