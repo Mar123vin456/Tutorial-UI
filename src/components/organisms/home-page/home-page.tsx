@@ -30,13 +30,8 @@ const Homepage = ({}: HomePageProps) => {
             Back
           </span>
 
-          <span
-            className={classnames(styles.next, {
-              [styles.isHidden]: state.currentStep === state.maxStep,
-            })}
-            onClick={nextStep}
-          >
-            Next
+          <span className={styles.next} onClick={nextStep}>
+            {state.currentStep === state.maxStep ? "Done" : "Next"}
           </span>
         </div>
       </div>
